@@ -1,6 +1,6 @@
-#EPEx: Error Path Exploration for Finding Error Handling Bugs
+**EPEx: Error Path Exploration for Finding Error Handling Bugs**
 
-##What is EPEx?
+**What is EPEx?**
 
 **E**rror **P**ath **Ex**ploration is a Clang checker
 that detects missing error handling cases in C code.
