@@ -12,7 +12,7 @@ by [Suman Jana](http://sumanj.info/),
 [Baishakhi Ray](http://rayb.info/),
 presented at the 2016 USENIX Security Symposium.
 
-##Why is EPEx useful?
+***Why is EPEx useful?***
 Writing correct error handling code in C is notoriously hard. Developers often 
 forget to check possible error cases or do not propagate error codes upstream 
 correctly. EPEx can detect such bugs by symbolically exploring different error 
@@ -26,7 +26,7 @@ The bugs include not only missing or incorrect checks for failure,
 but also cases in which failures are detected,
 but improperly reported.
 
-##How does EPEx work?
+***How does EPEx work?***
 Besides the program source code, EPEx takes error specifications,
 that specify error protocol(s) of the test functions, as input.
 EPEx uses under-constrained symbolic execution to explore
@@ -39,10 +39,11 @@ EPEx further reduces false positives by comparing results from multiple call-sit
 same function and only reports the cases where at least one caller of a test function performs 
 one of the three steps described above.
 
-#Installation and Usage
+**Installation and Usage**
 
-##Prerequisites
-###CMake:
+***Prerequisites***
+
+***CMake:***
 If you are using Ubuntu, you might need a newer version of CMake
 than what you can get through apt-get.
 You can download the source at:
@@ -50,7 +51,7 @@ https://cmake.org/download/
 It can be built and installed using the standard
 `./configure; make; sudo make install`
 
-##LLVM and clang:
+***LLVM and clang:***
 You can build the necessary parts of LLVM and clang at:
 http://clang.llvm.org/get_started.html
 It is not necessary to follow the optional steps 4-6.
@@ -63,7 +64,7 @@ you don't have to enter the binary directory in your commands.
 To analyze a single file, however, you still have to enter the build directory
 that contains the include folder.
 
-##Installing the Clang checker:
+***Installing the Clang checker:***
 1. Go to the directory
 `[path to llvm source folder]tools/clang/lib/StaticAnalyzer/Checkers`
 2. Add the source:
@@ -83,13 +84,14 @@ Open CMakeLists.txt, look for the block starting with
 5. Compile clang with the new checker:
   Inside the build directory, enter `make clang`.
 
-##Creating the Error Specification
+***Creating the Error Specification***
+
 A file called `error_spec.txt` needs to be in the directory
 in which you run the checker.
 It contains error specifications for fallible functions,
 as well as logging functions.
 
-###Syntax:
+***Syntax:***
 1. Bounds: `[bound operator], [bound value]`, where the bound operator can be:
   a. `GT`: greater than
   b. `GE`: greater than or equal
@@ -104,7 +106,8 @@ as well as logging functions.
 3. Bound operators and argument counts can be ignored
 by putting `-1` in their place.
 
-###Entries
+***Entries***
+
 1. Analyzed functions:
 ```
 [function name], [argument count], [first bound value], [first bound operator], [second bound value], [second bound operator], [return type]
